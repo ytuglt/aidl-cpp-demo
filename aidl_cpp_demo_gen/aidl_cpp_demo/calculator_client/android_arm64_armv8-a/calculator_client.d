@@ -1,0 +1,2 @@
+out/soong/.intermediates/frameworks/aidl_cpp_demo/calculator_client/android_arm64_armv8-a/calculator_client:   out/soong/.intermediates/frameworks/aidl_cpp_demo/calculator_client/android_arm64_armv8-a/unstripped/calculator_client   prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-objcopy   prebuilts/clang/host/linux-x86/clang-r383902b1/bin/llvm-nm   prebuilts/clang/host/linux-x86/clang-r383902b1/bin/llvm-objcopy   prebuilts/clang/host/linux-x86/clang-r383902b1/bin/llvm-readelf   prebuilts/clang/host/linux-x86/clang-r383902b1/bin/llvm-strip
+
