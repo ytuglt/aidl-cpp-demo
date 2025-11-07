@@ -1,0 +1,21 @@
+# Calculator Service init.rc configuration
+# 将此文件放置到 /system/etc/init/ 目录
+
+service calculator /system/bin/calculator_service
+    class main
+    user system
+    group system
+    seclabel u:r:calculator_service:s0
+    
+    # 失败后自动重启
+    restart
+    
+    # 延迟启动（在系统启动后启动）
+    disabled
+    
+    # 设置oom_score_adj（防止被OOM killer杀死）
+    oom_score_adj -900
+
+# 在boot完成后启动服务（可选）
+# on property:sys.boot_completed=1
+#     start calculator

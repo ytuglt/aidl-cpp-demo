@@ -1,0 +1,67 @@
+// AIDL接口定义
+aidl_interface {
+    name: "calculator-aidl",
+    local_include_dir: "aidl",
+    srcs: [
+        "aidl/com/example/ICalculator.aidl",
+        "aidl/com/example/ICalculatorCallback.aidl",
+    ],
+    // 指定后端语言
+    backend: {
+        cpp: {
+            enabled: true,
+        },
+        java: {
+            enabled: true,
+            platform_apis: true,
+        },
+        ndk: {
+            enabled: false,
+        },
+    },
+    // 不稳定接口（开发阶段）
+    unstable: true,
+}
+
+// 服务端可执行文件
+cc_binary {
+    name: "calculator_service",
+    srcs: [
+        "server/CalculatorService.cpp",
+        "server/service_main.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder",
+        "liblog",
+        "libutils",
+    ],
+    static_libs: [
+        "calculator-aidl-cpp",
+    ],
+    cflags: [
+        "-Wall",
+        "-Wextra",
+    ],
+}
+
+// 客户端可执行文件
+cc_binary {
+    name: "calculator_client",
+    srcs: [
+        "client/client_main.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder",
+        "liblog",
+        "libutils",
+    ],
+    static_libs: [
+        "calculator-aidl-cpp",
+    ],
+    cflags: [
+        "-Wall",
+        "-Wextra",
+    ],
+}
